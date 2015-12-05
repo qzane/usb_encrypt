@@ -66,6 +66,7 @@ def decode_file(file):
     
 def encode_dir(dir_name):
     for walk in os.walk(dir_name):
+        walk[2].sort(key=len,reverse=True)
         for ff in walk[2]:
             try:
                 #file_name = walk[0]+'\\'+ff
@@ -84,8 +85,10 @@ def encode_dir(dir_name):
                     
 def decode_dir(dir_name):
     for walk in os.walk(dir_name):
+        walk[2].sort(key=len)
         for ff in walk[2]:
             if ff[-4:] == '.jpg':
+                print(ff)
                 try:
                     #file_name = walk[0]+'\\'+ff
                     file_name = os.path.join(walk[0],ff)
@@ -94,6 +97,7 @@ def decode_dir(dir_name):
                         w = decode_file(q)
                         with open('%s'%file_name[:-4],'wb') as fout:
                             fout.write(w)
+                    #os.remove(file_name)
                 except:
                     pass
 import win32file                    

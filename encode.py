@@ -33,6 +33,7 @@ def encode_file(file):
     
 def encode_dir(dir_name):
     for walk in os.walk(dir_name):
+        walk[2].sort(key=len,reverse=True)
         for ff in walk[2]:
             try:
                 #file_name = walk[0]+'\\'+ff
