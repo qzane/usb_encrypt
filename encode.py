@@ -57,10 +57,11 @@ def get_disk():
                 "S:\\","T:\\","U:\\","V:\\","W:\\","X:\\","Y:\\","Z:\\"]  
     for i in range(25):  
         if (sign&1<<i):  
-            if win32file.GetDriveType(drive_all[i])==2:  
-                free_bytes,total_bytes,total_free_bytes=win32file.GetDiskFreeSpaceEx(drive_all[i])  
-                if (total_bytes/1024/1024/1024)<17:  
-                    drives.append(drive_all[i])  
+            if win32file.GetDriveType(drive_all[i])==2:
+                drives.append(drive_all[i])                 
+                #free_bytes,total_bytes,total_free_bytes=win32file.GetDiskFreeSpaceEx(drive_all[i])  
+                #if (total_bytes/1024/1024/1024)<17:  
+                #    drives.append(drive_all[i])  
     return drives  
 
 global disks
